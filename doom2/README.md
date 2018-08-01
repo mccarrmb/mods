@@ -81,40 +81,40 @@ These resources must be located between special marker lumps so that ZDoom can p
 |DEFBINDS   | Sets default key binds |
 |DEHACKED   | For modifying existing vanilla Doom things |
 |DEHSUPP    | A special lump that defines what you can change using Dehacked patches _deprecated_|
-|DMXGUS     | ''Defines [[GUS]] patch mapping.''
-|FSGLOBAL   | ''Global FraggleScript lump.''
-|FONTDEFS   | ''Use this lump to create new [[font]]s.''
-|GAMEINFO]]| ''Use this lump to define load-time data for a file''
-|GLDEFS   | ''Used to define many [[OpenGL]] effects.'' {{OpenGLsmall}}
-|IWADINFO ''Used to define the main data file of a stand-alone game.''
-|KEYCONF ''Use this lump to create new key bindings in the options menu.''
-|LANGUAGE ''Use this lump to modify or adjust strings.''
-|LOADACS ''Use this lump to automatically load [[ACS]] objects (even for [[Doom format]] maps).''
-|LOCKDEFS ''Use this lump to assign [[key]]s to locks.''
-|[MAPINFO ''This lump defines how the game is played, including map settings, map sequences in episodes, ''[[Hexen]]''-style hubs, intermission texts, skill settings, and a lot more.''
-|* [[MENUDEF]] ''Used to define custom [[menu]]s.''
-|* [[MODELDEF]] ''Used to define [[model]]s.'' {{OpenGLsmall}}
-|* [[MUSINFO]] ''Use this lump to define alternate music for maps''
-|* [[PALVERS]] ''Use this lump to define paletted versions of truecolor graphics''
-|* [[REVERBS]] ''Defines reverb environments for use with the {{Class|SoundEnvironment}} thing.'' '''(Formerly SNDEAX)'''
-|* [[S_SKIN]] ''Describes the properties of a custom [[skin]] (player sprite).''
-|* [[SBARINFO]] ''Used to create custom [[status bar]]s without the use of ACS.''
-|* [[SCRIPTS]] ''This lump usually contains [[ACS]] source for a map, if it exists.''
-|* [[SECRETS]] ''This lump contains hints for finding [[secret]]s in maps.''
-|* [[SNDINFO]] ''Used to create and define the properties of all sounds.''
-|* [[SNDSEQ]] ''This lump creates sound sequences for moving sectors such as doors.''
-|* [[TEAMINFO]] ''Defines custom [[team]]s.''
-|* [[TERRAIN]] ''This lump can change various properties of floor textures.''
-|* [[TEXTCOLO]] ''Use this lump to define new text colors.''
-|* [[TEXTURES]] ''ZDoom's advanced texture definition lump, can also define hi-res graphics.'' '''(Formerly HIRESTEX)'''
-|* [[TRNSLATE]] ''Contains custom translations for use with actors.''
-|* [[VOXELDEF]] ''Use this lump to fine-tune [[voxel]] support.''
-|* [[XHAIRS]] ''Used to define new [[crosshair]]s.''
-|* [[X11R6RGB]] ''Used to define color names.''
-|* '''ZMAPINFO''' ''Alias for MAPINFO. Use ZMAPINFO if you want to avoid breaking compatibility with other ports.'' 
-|* [[Intermission script]]s  ''Used to animate or specialize [[intermission]] backdrops.''
-|* [[Map arrow]]s ''Used to define the simple vector graphics used in the [[automap]].''
-|* [[Map translator]] ''Used to provide alternative translation rules for [[Doom format]] maps.''
+|DMXGUS     | Defines GUS patch mapping |
+|FSGLOBAL   | Global FraggleScript lump |
+|FONTDEFS   | Use this lump to create new fonts |
+|GAMEINFO   | Use this lump to define load-time data for a file |
+|GLDEFS     | Used to define many OpenGL effects **OpenGL only** |
+|IWADINFO   | Used to define the main data file of a stand-alone game |
+|KEYCONF    | Use this lump to create new key bindings in the options menu |
+|LANGUAGE   | Use this lump to modify or adjust strings |
+|LOADACS    | Use this lump to automatically load ACS objects (even for Doom format maps) |
+|LOCKDEFS   | Use this lump to assign keys to locks |
+|[MAPINFO   | This lump defines how the game is played, including map settings, map sequences in episodes, Hexen-style hubs, intermission texts, skill settings, and a lot more |
+|MENUDEF    | Used to define custom menus |
+|MODELDEF   | Used to define models. **OpenGL only** |
+|MUSINFO    | Use this lump to define alternate music for maps |
+|PALVERS    | Use this lump to define paletted versions of truecolor graphics |
+|REVERBS    | Defines reverb environments for use with the SoundEnvironment thing. (Formerly SNDEAX) |
+|S_SKIN     | Describes the properties of a custom skin (player sprite) |
+|SBARINFO   | Used to create custom status bars without the use of ACS |
+|SCRIPTS    | This lump usually contains ACS source for a map, if it exists |
+|SECRETS    | This lump contains hints for finding secrets in maps |
+|SNDINFO    | Used to create and define the properties of all sounds |
+|SNDSEQ     | This lump creates sound sequences for moving sectors such as doors |
+|TEAMINFO   | Defines custom teams |
+|TERRAIN    | This lump can change various properties of floor textures |
+|TEXTCOLO   | Use this lump to define new text colors |
+|TEXTURES   | ZDoom's advanced texture definition lump, can also define hi-res graphics. (Formerly HIRESTEX) |
+|TRNSLATE   | Contains custom translations for use with actors |
+|VOXELDEF   | Use this lump to fine-tune voxel support |
+|XHAIRS     | Used to define new crosshairs |
+|X11R6RGB   | Used to define color names |
+|ZMAPINFO   | Alias for MAPINFO. Use ZMAPINFO if you want to avoid breaking compatibility with other ports. |
+|Intermission Scripts |  Used to animate or specialize intermission backdrops _(lumps of this type can have custom names)_|
+|Map Arrows | Used to define the simple vector graphics used in the automap _(lumps of this type can have custom names)_|
+|Map Translator| Used to provide alternative translation rules for Doom format maps _(lumps of this type can have custom names)_|
 
 ## PK3 Reference
 
