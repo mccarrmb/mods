@@ -24,7 +24,7 @@ The directory associates names of lumps with the data that belong to them. It co
 |:---------:|:------- |
 | 0x00-0x03 |An integer holding a pointer to the start of the lump's data in the file|
 | 0x04-0x07 |An integer representing the size of the lump in bytes|
-| 0x08-0x0f |ASCII string defining the lump's name. Only the characters A-Z (uppercase), 0-9 and []-_ should be used in Lump names (an exception has to be made for some of the ArchVile sprites, which use "\"). The string must be null-terminated if shorter than 8 bytes.|
+| 0x08-0x0f |ASCII string defining the lump's name. Only the characters A-Z (uppercase), 0-9 and []-_ should be used in Lump names (an exception has to be made for some of the ArchVile sprites, which use "\\"). The string must be null-terminated if shorter than 8 bytes.|
 
 ### WAD Lump Order
 
@@ -118,8 +118,6 @@ These resources must be located between special marker lumps so that ZDoom can p
 
 #### Compiled Lumps
 
-These lumps must be compiled by various tools, and offer advanced control of some ZDoom aspects.
-
 | Lump Name | Description |
 |:---------:|:----------- |
 |ANIMATED   | Animations Boom Style |
@@ -140,7 +138,7 @@ These lumps must be compiled by various tools, and offer advanced control of som
 |ENDOOM     | The special text screen displayed when quitting the game (ANSI terminal graphic) |
 |TITLEPIC   | Picture displayed on the title screen if no TITLEMAP is present |
 |AUTOPAGE   | Optional background for the full-screen automap |
-|Startup lumps| The ANSI terminal startup screens used by Heretic (LOADING), Hexen (STARTUP), and Strife (STARTUP0) |
+|Startup Lumps| The ANSI terminal startup screens used by Heretic (LOADING), Hexen (STARTUP), and Strife (STARTUP0) |
 
 ## PK3 Reference
 
