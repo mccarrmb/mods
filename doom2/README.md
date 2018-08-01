@@ -142,34 +142,119 @@ These resources must be located between special marker lumps so that ZDoom can p
 
 ## PK3 and PK7 Reference
 
-### PK3
+### Container Specifications
 
-PK3's are a ZIP-based container with a .pk3 extension for ZDoom mods. ZDoom supports several ZIP archiving methods:
+#### PK3 Format
 
-* stored (no compression)
-* shrunk
-* imploded
-* deflated (the most commonly used)
-* bzip2
+PK3's (.pk3 extension) are a ZIP-based container used in place of a traditional WAD file. ZDoom supports several ZIP archiving methods:
+
+* Deflate (most common)
+* Store (no compression)
+* Shrink
+* Implode
+* BZip2
 * LZMA
 
+#### PK7 Format
 
-### PK7
+PK7's (.pk7 extension) are a 7z-based container used in place of a traditional WAD file. ZDoom supports several ZIP archiving methods:
 
+* Deflate (most common)
+* PPMD
+* BCJ
+* BCJ2
+* BZip2
+* LZMA
+* LZMA2
 
+**Note:** PK7's are slower to decompress and increase the memory footprint ZDoom.
 
-### Directory Structure
+### Directory and Data Behavior
+
+#### WAD Embedding
+
+Embedded WADs are loaded after all PK3 / PK7 Lump directories have been loaded into memory. WADs located in the container root directory will have their Lumps loaded into the corresponding in-memory Lump namespaces. In the case of duplicate Lumps or Lump values, ZDoom will load the assets in alphabetical order.
+
+Embedding WADs has the potential of causing memory issues as ZDoom allocates new blocks of memory for each WAD file's decompression. Avoid embedding large or numerous WAD files in the container root.
+
+#### Container Lump Data
+
+All Lump data within PK3 / PK7 containers is loaded into Lump-memory in alphabetical order. This is important in the case of flat or texture animations that require all frames to be in order. All Lumps are defined by the first eight characters in the name.
+
+Sprite lumps for the \ frame in a WAD can be put in a ZIP file by changing the backslash character (\\) to a caret character (^). This replacement only works for sprites, any other Lump name should not contain backslashes. Any file not in one of the reserved directories is not added to the WAD directory and can only be used by code that looks for full path names.
+
+_Note: Hidden system files such as thumbs.db, .DS_Store, and ~.swp can cause fatal errors when accidentally added to a PK3 / PK7 container._
+
+For all legacy Lump data, the data structure of the Lump must match the structure as it would be found in legacy WAD files. The exceptions to this are the following:
+
+##### Graphics Data
+
+* RAW
+* PNG
+  * Paletted or true color
+  * Supports Translucency
+* JPEG
+  * True color
+* DDS
+  * True color
+  * Mipmaps
+  * Supports Translucency
+* PCX
+  * Paletted or true color
+  * Supports Translucency (only in true color)
+* TGA
+  * Paletted or true color
+  * Supports Translucency  
+* IMGZ
+  * ZDoom specific alpha map
+* Build Tile
+  * Native format for Build engine graphics
+
+_Note: Software mode forces all graphics to use the native game palette._
+
+##### Sound Data
+
+* AIFF
+* FLAC
+  * Supports audio loops
+* MP2
+* MP3
+* Ogg Vorbis
+  * Supports audio loops
+* RAW
+* WAV
+* VOC
+
+##### Music Specific Data
+
+* HMI
+* HMP
+* MID / MIDI / SMF
+* XMF
+* DRO
+* IMF
+* RAW
+
+##### Font Data
+
+* BMF
+* Composite (images detailed in FONTDEF Lump)
+* FON1
+* FON2
+* ANSI terminal format
+
+### PK3 / PK7 Directory Structure
 
 | Path     | Description |
 |:--------:|:----------- |
 |acs/      | contains ACS libraries normally found between A\_START and A\_END |
-|colormaps/| contains Boom colormaps normally found between C\_START and C\_END. New ZDoom WADs should not need to use this. |
-|filter/   | contains lumps and directories that will only be loaded with specific games. |
+|colormaps/| contains Boom colormaps normally found between C\_START and C\_END. New ZDoom WADs should not need to use this |
+|filter/   | contains lumps and directories that will only be loaded with specific games |
 |flats/    | contains flats normally found between FF\_START and FF\_END |
-|graphics/ | All special graphics like title pictures or font characters must go here. This namespace does not exist in WADs. |
+|graphics/ | All special graphics like title pictures or font characters must go here _This namespace does not exist in WADs_ |
 |hires/    | contains high-resolution textures normally found between HI\_START and HI\_END |
-|maps/     | contains levels in form of WADs. These WADs must only contain the data for one single level (including GL nodes lumps if required). Any other data in such a WAD will be ignored. Note that the file name and not the map label inside the WAD determines how the map is named in the game. |
-|music/    | contains all data that is used as music. This namespace does not exist in WADs. |
+|maps/     | contains levels in form of discrete WADs. These WADs must only contain the data for one single level (including GL nodes lumps if required) _Note that the file name and not the map label inside the WAD determines how the map is named in the game_ |
+|music/    | contains all data that is used as music. This namespace does not exist in WADs |
 |patches/  | contains patches normally found between PP\_START and PP\_END |
 |sounds/   | contains all sound files that are referenced by SNDINFO. This namespace does not exist in WADs. |
 |sprites/  | contains sprites normally found between S\_START and S\_END (also known as SS\_START, SS\_END) |
