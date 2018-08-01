@@ -91,7 +91,7 @@ These resources must be located between special marker lumps so that ZDoom can p
 |LANGUAGE   | Use this lump to modify or adjust strings |
 |LOADACS    | Use this lump to automatically load ACS objects (even for Doom format maps) |
 |LOCKDEFS   | Use this lump to assign keys to locks |
-|[MAPINFO   | This lump defines how the game is played, including map settings, map sequences in episodes, Hexen-style hubs, intermission texts, skill settings, and a lot more |
+|MAPINFO   | This lump defines how the game is played, including map settings, map sequences in episodes, Hexen-style hubs, intermission texts, skill settings, and a lot more |
 |MENUDEF    | Used to define custom menus |
 |MODELDEF   | Used to define models. **OpenGL only** |
 |MUSINFO    | Use this lump to define alternate music for maps |
@@ -112,9 +112,35 @@ These resources must be located between special marker lumps so that ZDoom can p
 |XHAIRS     | Used to define new crosshairs |
 |X11R6RGB   | Used to define color names |
 |ZMAPINFO   | Alias for MAPINFO. Use ZMAPINFO if you want to avoid breaking compatibility with other ports. |
-|Intermission Scripts |  Used to animate or specialize intermission backdrops _(lumps of this type can have custom names)_|
+|Intermission Scripts |  Used to animate or specialize intermission backdrops _(lumps of this type can have custom names but usually start with 'IN_*')_|
 |Map Arrows | Used to define the simple vector graphics used in the automap _(lumps of this type can have custom names)_|
 |Map Translator| Used to provide alternative translation rules for Doom format maps _(lumps of this type can have custom names)_|
+
+#### Compiled Lumps
+
+These lumps must be compiled by various tools, and offer advanced control of some ZDoom aspects.
+
+| Lump Name | Description |
+|:---------:|:----------- |
+|ANIMATED   | Animations Boom Style |
+|BEHAVIOR   | A compiled ACS script lump |
+|GENMIDI    | Register values for MIDI instruments in OPL emulation |
+|SNDCURVE   | Sound curve lookup tables, originating from Heretic and Hexen |
+|SWITCHES   | Switch textures Boom Style |
+|Libraries  | Libraries can be used to allow a certain set of ACS functions to be used on any map |
+|DIALOGUE   | A built-in conversation system |
+|TEXTURE1 and TEXTURE2 | Doom's original texture definition lump(s) |
+|TITLEMAP   | A map which can be used as a replacement for the title screen |
+
+#### ANSI and Bitmap Graphic Lumps
+
+| Lump Name | Description |
+|:---------:|:----------- |
+|CONBACK    | Console background (if not supplied TITLEPIC is used instead) |
+|ENDOOM     | The special text screen displayed when quitting the game (ANSI terminal graphic) |
+|TITLEPIC   | Picture displayed on the title screen if no TITLEMAP is present |
+|AUTOPAGE   | Optional background for the full-screen automap |
+|Startup lumps| The ANSI terminal startup screens used by Heretic (LOADING), Hexen (STARTUP), and Strife (STARTUP0) |
 
 ## PK3 Reference
 
