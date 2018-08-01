@@ -140,7 +140,25 @@ These resources must be located between special marker lumps so that ZDoom can p
 |AUTOPAGE   | Optional background for the full-screen automap |
 |Startup Lumps| The ANSI terminal startup screens used by Heretic (LOADING), Hexen (STARTUP), and Strife (STARTUP0) |
 
-## PK3 Reference
+## PK3 and PK7 Reference
+
+### PK3
+
+PK3's are a ZIP-based container with a .pk3 extension for ZDoom mods. ZDoom supports several ZIP archiving methods:
+
+* stored (no compression)
+* shrunk
+* imploded
+* deflated (the most commonly used)
+* bzip2
+* LZMA
+
+
+### PK7
+
+
+
+### Directory Structure
 
 | Path     | Description |
 |:--------:|:----------- |
