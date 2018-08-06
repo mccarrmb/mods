@@ -1,8 +1,1 @@
-clearepisodes
-clearskills
-
-episode MAP01
-{
-name = "Single Player"
-noskillmenu
-}
+map MAP01 mountain
