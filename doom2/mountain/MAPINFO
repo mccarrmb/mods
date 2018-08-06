@@ -1,1 +1,5 @@
 map MAP01 mountain
+{
+  sky1 = "SKY3", 0
+  music = "bfg_dvsn"
+}
